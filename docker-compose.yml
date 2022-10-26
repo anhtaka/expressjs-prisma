@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "mydb"
+  web:
+    image: node:16.14.0
+    working_dir: /usr/src/app
+    tty: true
+    ports: 
+    - '3000:3000'
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - db
+    command: >
+      bash -c "npm install
+      npm install nodemon -g &&
+      nodemon -L src/index.ts"
+    environment:
+      DATABASE_URL: "postgresql://postgres:postgres@db:5432/mydb?schema=public"
+volumes:
+  db-volume:

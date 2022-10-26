@@ -16,3 +16,9 @@ model Todo {
   text      String
   completed Boolean
 }
+
+model User {
+  id      Int      @default(autoincrement()) @id
+  email   String   @unique
+  name    String?
+}

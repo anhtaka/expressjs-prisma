@@ -1,0 +1,14 @@
+### POST test
+POST http://localhost:3000/todos HTTP/1.1
+content-type: application/json
+
+{
+  "createdAt": "2022-10-26T02:38:53.159Z",
+  "text": "Empty todo1111"
+}
+
+
+### get test
+get http://localhost:3000/todos HTTP/1.1
+content-type: application/json
+
