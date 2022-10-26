@@ -12,3 +12,6 @@ content-type: application/json
 get http://localhost:3000/todos HTTP/1.1
 content-type: application/json
 
+### get test
+get http://localhost:3000/todos/3a086a3d-2ede-4bdc-b15c-cb5958577c9f HTTP/1.1
+content-type: application/json
