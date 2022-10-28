@@ -62,6 +62,16 @@ app.delete("/todos/:id", async (req, res) => {
   return res.send({ status: "ok" });
 });
 
+app.delete("/todostext/:text", async (req, res) => {
+  const text = req.params.text;
+  await prisma.todo.deleteMany({
+    where: { text: text, },
+  });
+
+  return res.send({ status: "ok" });
+});
+
+
 app.get("/", async (req, res) => {
   res.send(
     `
