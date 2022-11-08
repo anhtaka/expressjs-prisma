@@ -1,0 +1,25 @@
+### POST test
+POST http://localhost:3000/todos HTTP/1.1
+content-type: application/json
+
+{
+  "createdAt": "2022-10-26T02:38:53.159Z",
+  "text": "Emptytodo1111"
+}
+
+
+### get test
+get http://localhost:3000/todos HTTP/1.1
+content-type: application/json
+
+### get test
+get http://localhost:3000/todos/3a086a3d-2ede-4bdc-b15c-cb5958577c9f HTTP/1.1
+content-type: application/json
+
+### delte test
+DELETE http://localhost:3000/todos/54d40f63-8cb6-4921-9247-9ea6c88021f6 HTTP/1.1
+content-type: application/json
+
+### delte test
+DELETE http://localhost:3000/todostext/Empty todo HTTP/1.1
+content-type: application/json

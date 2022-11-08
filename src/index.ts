@@ -10,6 +10,10 @@ app.use(express.json());
 app.use(express.raw({ type: "application/vnd.custom-type" }));
 app.use(express.text({ type: "text/html" }));
 
+app.get('/test', (req, res) => {
+  res.json('hello there211ttt33222ddd')
+})
+
 app.get("/todos", async (req, res) => {
   const todos = await prisma.todo.findMany({
     orderBy: { createdAt: "desc" },
@@ -57,6 +61,16 @@ app.delete("/todos/:id", async (req, res) => {
 
   return res.send({ status: "ok" });
 });
+
+app.delete("/todostext/:text", async (req, res) => {
+  const text = req.params.text;
+  await prisma.todo.deleteMany({
+    where: { text: text, },
+  });
+
+  return res.send({ status: "ok" });
+});
+
 
 app.get("/", async (req, res) => {
   res.send(
