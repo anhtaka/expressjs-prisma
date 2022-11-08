@@ -23,7 +23,7 @@ services:
     command: >
       bash -c "npm install
       npm install nodemon -g &&
-      nodemon -L src/index.ts"
+      nodemon -L src/app.ts"
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@db:5432/mydb?schema=public"
 volumes:
